@@ -5,7 +5,7 @@
   </div>
   <router-view />
 </template>
-
+<style src="./css/reset.css"></style>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
