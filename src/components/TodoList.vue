@@ -165,32 +165,30 @@
 				//沒有雙擊任何一個todo的狀況下，editTodo本來就是空的，雙擊後才會出現input，所以在input編輯完後，要跳回原本checkbox的樣子，要回到editTodo是空的狀態。
 			},
 		},
-		// computed: {
-		//   //過濾後的todos
-		//   filterTodos() {
-		//     if (this.visibility == "all") {
-		//       return this.todos;
-		//     } else if (this.visibility == "active") {
-		//       //接收未完成的內容
-		//       let activeTodos = [];
-		//       this.todos.forEach(function (item) {
-		//         if (item.completed == false) {
-		//           activeTodos.push(item);
-		//         }
-		//       });
-		//       return activeTodos;
-		//     } else if (this.visibility == "completed") {
-		//       //接收未完成的內容
-		//       let activeTodos = [];
-		//       this.todos.forEach(function (item) {
-		//         if (item.completed == true) {
-		//           activeTodos.push(item);
-		//         }
-		//       });
-		//       return activeTodos;
-		//     }
-		//   },
-		// },
+		computed: {
+		  //過濾後的todos
+		  filterTodos() {
+			let activeTodos = [];
+		    if (this.visibility == "all") {
+		      activeTodos = this.todos;
+		    } else if (this.visibility == "active") {
+		      //接收未完成的內容
+		      this.todos.forEach(function (item) {
+		        if (item.completed == false) {
+		          activeTodos.push(item);
+		        }
+		      });
+		    } else if (this.visibility == "completed") {
+		      //接收未完成的內容
+		      this.todos.forEach(function (item) {
+		        if (item.completed == true) {
+		          activeTodos.push(item);
+		        }
+		      });		      
+		    }
+			return activeTodos;
+		  },
+		},
 	};
 </script>
 
